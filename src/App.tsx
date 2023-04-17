@@ -1,26 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
+import AdviceCard from 'components/AdviceCard/AdviceCard';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="underline">
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div className="mx-4 mt-32 flex justify-center xs:mt-56">
+    <AdviceCard />
+  </div>
+);
 
 export default App;
