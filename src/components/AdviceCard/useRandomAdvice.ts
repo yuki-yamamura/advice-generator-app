@@ -1,4 +1,4 @@
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 import { Slip } from 'types/Slip';
 
 // the api endpoint to get a random advice
@@ -12,7 +12,7 @@ const useRandomAdvice = (): {
   isLoading: boolean;
   refreshAdvice: () => void;
 } => {
-  const { data, error, isLoading } = useSWR<Data, Error>(
+  const { data, error, isLoading, mutate } = useSWR<Data, Error>(
     adviceSlipApiUrl,
     (url: string) => fetch(url).then((res) => res.json()),
     {
@@ -24,7 +24,7 @@ const useRandomAdvice = (): {
   );
 
   const refreshAdvice = () => {
-    void mutate<Data>(adviceSlipApiUrl);
+    void mutate();
   };
 
   return { data, error, isLoading, refreshAdvice };
